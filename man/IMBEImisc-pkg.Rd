@@ -6,7 +6,7 @@
 \alias{IMBEImisc-pkg-package}
 \title{IMBEImisc}
 \description{
-`IMBEImisc` is an R package that provides
+\code{IMBEImisc} is an R package that provides
 }
 \author{
 Federico Marini \email{marinif@uni-mainz.de}
