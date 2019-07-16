@@ -1,26 +1,37 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
 
 # IMBEImisc
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 A collection of functions commonly used by members of the IMBEI
 
 ## Installation
 
-You can install the development version of `IMBEImisc` from
-[GitHub](https://github.com/) with:
+You can install the development version of `IMBEImisc` from [GitHub](https://github.com/) with:
 
-``` r
+```{r }
 # install.packages("devtools")
 devtools::install_github("imbeimainz/IMBEImisc")
 ```
 
 ## Usage
 
-``` r
+```{r}
 library("IMBEImisc"")
 ```
+
+
