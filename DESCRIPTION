@@ -1,0 +1,11 @@
+Package: IMBEImisc
+Title: A collection of functions commonly used by members of the IMBEI
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+    person("Federico", "Marini", role=c("aut","cre"), email="marinif@uni-mainz.de", comment = c(ORCID = '0000-0003-3252-7758')))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
