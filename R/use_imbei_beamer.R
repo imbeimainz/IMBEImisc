@@ -19,6 +19,12 @@ use_imbei_beamer <- function(keep_tex = TRUE, copy_to = getwd()) {
       to = copy_to
     )
   )
+  invisible(
+      file.copy(
+      from = system.file("latexdata","Universitaetsmedizin.jpg",package = "IMBEImisc"),
+      to = copy_to
+    )
+  )
   
   
   # suggest yaml added lines
@@ -27,7 +33,7 @@ use_imbei_beamer <- function(keep_tex = TRUE, copy_to = getwd()) {
   message(
     paste0(
     '
----\ntitle: "Your Title"\n  author: "Your name"\n  date: "Date"\n  output:  \n    beamer_presentation:\n      template: IMBEI_beamer_template.tex\n      keep_tex: ', keep_tex,'\n---
+---\ntitle: "Your Title"\nauthor: "Your name"\ndate: "Date"\noutput:  \n  beamer_presentation:\n    template: IMBEI_beamer_template.tex\n    keep_tex: ', keep_tex,'\n---
     '
     )
   )
