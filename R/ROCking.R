@@ -56,7 +56,7 @@ youden_rocr <- function(pred) {
 #' data(ROCR.simple)
 #' pred <- prediction( ROCR.simple$predictions, ROCR.simple$labels )
 #' perf <- performance( pred, "tpr", "fpr" )
-#' plot( perf, main ="made with default plot function from ROCR" )
+#' ROCR::plot( perf, main ="made with default plot function from ROCR" )
 #' 
 #' rocplot(ROCR.simple,"predictions","labels", main = "made with rocplot")
 rocplot <- function(df, predictions_name, outcomes_name, 
@@ -65,7 +65,7 @@ rocplot <- function(df, predictions_name, outcomes_name,
   
   pred <- ROCR::prediction(df[[predictions_name]],df[[outcomes_name]])
   rocperf = performance(pred, measure = "tpr", x.measure = "fpr")
-  plot(rocperf,lwd = 2,
+  ROCR::plot(rocperf,lwd = 2,
        xlab = "FPR (1 - specificity)",
        ylab = "TPR (sensitivity)",...)
   abline(a=0, b= 1,lwd=0.5)

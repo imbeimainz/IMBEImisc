@@ -35,7 +35,7 @@ library(ROCR)
 data(ROCR.simple)
 pred <- prediction( ROCR.simple$predictions, ROCR.simple$labels )
 perf <- performance( pred, "tpr", "fpr" )
-plot( perf, main ="made with default plot function from ROCR" )
+ROCR::plot( perf, main ="made with default plot function from ROCR" )
 
 rocplot(ROCR.simple,"predictions","labels", main = "made with rocplot")
 }
