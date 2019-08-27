@@ -87,4 +87,11 @@ rocplot <- function(df, predictions_name, outcomes_name,
            sep = ""),
          col="steelblue",cex = 0.7)
   }
+  return(
+    invisible(
+      list(
+        pred = pred,
+        YoudenPerf = my_youden,
+        AUC = my_auc
+      )))
 }  
