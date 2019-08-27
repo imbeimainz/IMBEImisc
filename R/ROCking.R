@@ -1,8 +1,3 @@
-library(ROCR)
-library(Epi)
-library(OptimalCutpoints)
-library(pROC)
-
 #' Calculate performance measures at the Youden Index for a ROC curve
 #'
 #' Calculate performance measures at the Youden Index for a ROC curve
