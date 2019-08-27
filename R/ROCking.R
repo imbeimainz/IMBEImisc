@@ -3,14 +3,22 @@ library(Epi)
 library(OptimalCutpoints)
 library(pROC)
 
-#' Title
+#' Calculate performance measures at the Youden Index for a ROC curve
 #'
-#' @param pred 
+#' Calculate performance measures at the Youden Index for a ROC curve
 #'
-#' @return
+#' @param pred An object of class prediction, as commonly used by ROCR
+#'
+#' @return A list of values, with the Youden Index, speci, sensi, positive & negative
+#' predictive values
 #' @export
 #'
 #' @examples
+#' # Using the basic example from the ROCR package
+#' library(ROCR)
+#' data(ROCR.simple)
+#' pred <- prediction( ROCR.simple$predictions, ROCR.simple$labels )
+#' youden_rocr(pred)   # these can be printed out or used later in plotting functions
 youden_rocr <- function(pred) {
   sensis <- performance(pred,measure = "sens")@y.values[[1]]
   specis <- performance(pred,measure = "spec")@y.values[[1]]
@@ -32,16 +40,19 @@ youden_rocr <- function(pred) {
   )
 }
 
-#' Title
+#' Customized ROC plot
 #'
-#' @param df 
-#' @param predictions_name 
-#' @param outcomes_name 
-#' @param decorate_youden 
-#' @param decorate_performance 
-#' @param ... 
+#' @param df The data frame containing the observations
+#' @param predictions_name Character, specifying the column name containing the predictor
+#' @param outcomes_name Character, specifying the column name specifying the labels
+#' @param decorate_youden Logical, whether to add some info about and around the Youden Index
+#' @param decorate_performance Logical, whether to add some info about the performance
+#' of the classifier
+#' @param ... To be further passed to the ROCR::plot command, ensures some degree of 
+#' customizability (color, add=TRUE, ...)
 #'
-#' @return
+#' @return A plot object, and invisibly the list of objects which can be conveniently 
+#' further used
 #' @export
 #'
 #' @examples
