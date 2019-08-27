@@ -20,3 +20,6 @@ compact descr
 \details{
 some more details
 }
+\examples{
+use_imbei_beamer()
+}
