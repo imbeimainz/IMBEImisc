@@ -11,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' use_imbei_beamer()
 use_imbei_beamer <- function(keep_tex = TRUE, copy_to = getwd()) {
   # copy the template from IMBEImisc to the current location
   invisible(
