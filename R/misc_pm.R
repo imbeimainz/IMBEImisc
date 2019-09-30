@@ -2,6 +2,8 @@
 
 #' print_with_confint
 #'
+#' this is a small auxiliary function that reformats the coefficient estimates of regression models.
+#' 
 #' @param coefs two-column matrix. First column should be the estimate, second column should be the the standard error as returned from summary method
 #' @param df numeric, denominator degrees of freedom if t-d
 #' @param exp logical, defaults to FALSE. Should the estimates be transformed with exp(.)?
