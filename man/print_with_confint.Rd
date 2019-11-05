@@ -19,7 +19,7 @@ print_with_confint(coefs, df = Inf, exp = FALSE, conf.level = 0.95)
 a matrix
 }
 \description{
-print_with_confint
+this is a small auxiliary function that reformats the coefficient estimates of regression models.
 }
 \examples{
 
