@@ -50,7 +50,7 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 #' plot_pkg(c("gee","geepack"))
 #' 
 #' 
-plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE...){
+plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE,...){
   if(!"cranlogs" %in% rownames(installed.packages())){
     install.packages("cranlogs")
   }
