@@ -46,14 +46,15 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 #' @export
 #'
 #' @examples
-#' require(ggplot2)
 #' plot_pkg(c("gee","geepack"))
 #' 
 #' 
 plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE,...){
-  if(!"cranlogs" %in% rownames(installed.packages())){
-    install.packages("cranlogs")
-  }
+  needed_pkgs  <- c("cranlogs","ggplot2")
+  missing      <- !(needed_pkgs %in% rownames(installed.packages()))
+  install.packages(needed_pkgs[missing])
+  lapply(needed_pkgs,require,character.only=TRUE)
+
   Counts <- data.frame()
   for(i in 1:length(pkg_names)){
     Counts <- rbind(Counts,cranlogs::cran_downloads(pkg_names[i], from=start_date))
