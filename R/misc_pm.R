@@ -35,7 +35,7 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 #' plot_pkg
 #' 
 #' A function to check and compare the "poplarity" of R-packages.
-#' It uses the cranlogs-package to get download counts, which are then plotted.
+#' It uses the cranlogs-package to get download counts, which are then plotted over time.
 #' *to be extended* 
 #' 
 #' @param pkg_names character string of package names to compare
@@ -50,7 +50,7 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 #' plot_pkg(c("gee","geepack"))
 #' 
 #' 
-plot_pkg <- function(pkg_names, start_date="2012-01-01",...){
+plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE...){
   if(!"cranlogs" %in% rownames(installed.packages())){
     install.packages("cranlogs")
   }
@@ -58,5 +58,7 @@ plot_pkg <- function(pkg_names, start_date="2012-01-01",...){
   for(i in 1:length(pkg_names)){
     Counts <- rbind(Counts,cranlogs::cran_downloads(pkg_names[i], from=start_date))
   }
-  ggplot(data=Counts,aes(date,count,col=package)) + geom_smooth() + geom_point(alpha=.1)
+  plt <- ggplot(data=Counts,aes(date,count,col=package)) + geom_smooth() + geom_point(alpha=.1)
+  if(log_scale) plt <- plt + scale_y_log10()
+  return(plt)
 }
