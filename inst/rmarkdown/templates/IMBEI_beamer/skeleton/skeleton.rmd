@@ -1,0 +1,19 @@
+---
+title: "IMBEI Presentation"
+author: " <Mein Name> "
+date: " `r system.date()` "
+output: 
+  beamer_presentation:
+    template: IMBEI_beamer_template.tex
+    keep_tex: TRUE
+---
+
+## Kapitel 
+
+### Unterkapitel
+
+### Unterkapitel
+
+## Kapitel
+
+### Unterkapitel

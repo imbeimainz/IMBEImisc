@@ -16,13 +16,15 @@ use_imbei_beamer <- function(keep_tex = TRUE, copy_to = getwd()) {
   # copy the template from IMBEImisc to the current location
   invisible(
     file.copy(
-      from = system.file("latexdata","IMBEI_beamer_template.tex",package = "IMBEImisc"),
+      from = system.file("rmarkdown/templates/IMBEI_beamer/skeleton",
+                         "IMBEI_beamer_template.tex",package = "IMBEImisc"),
       to = copy_to
     )
   )
   invisible(
       file.copy(
-      from = system.file("latexdata","Universitaetsmedizin.jpg",package = "IMBEImisc"),
+      from = system.file("rmarkdown/templates/IMBEI_beamer/skeleton",
+                         "Universitaetsmedizin.jpg",package = "IMBEImisc"),
       to = copy_to
     )
   )

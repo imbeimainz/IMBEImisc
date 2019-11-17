@@ -52,11 +52,7 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE,...){
   needed_pkgs  <- c("cranlogs","ggplot2")
   missing      <- !(needed_pkgs %in% rownames(installed.packages()))
-<<<<<<< HEAD
   if(max(missing)>0) install.packages(needed_pkgs[missing])
-=======
-  install.packages(needed_pkgs[missing])
->>>>>>> 9c09c346c0478a749b0d0717f315b14f02d28099
   lapply(needed_pkgs,require,character.only=TRUE)
 
   Counts <- data.frame()
