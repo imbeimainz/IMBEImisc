@@ -1,19 +1,29 @@
 ---
 title: "IMBEI Presentation"
-author: " <Mein Name> "
-date: " `r system.date()` "
+author: " < Mein Name > "
+date: " `r Sys.Date()` "
 output: 
   beamer_presentation:
     template: IMBEI_beamer_template.tex
     keep_tex: TRUE
 ---
 
-## Kapitel 
+# Chapter 1
 
-### Unterkapitel
+## Slide A 
 
-### Unterkapitel
+some text
 
-## Kapitel
+## Slide B
 
-### Unterkapitel
+more text 
+
+# Chapter 2
+
+## Slide
+
+```{r, echo=FALSE}
+plot(-1:1,-1:1,type="n")
+text(0,0," ... maybe some plots ... ",cex=4)
+```
+
