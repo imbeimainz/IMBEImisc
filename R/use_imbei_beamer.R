@@ -1,11 +1,11 @@
 #' use_imbei_beamer
 #' 
-#' compact descr
-#' 
-#' some more details
+#' Facilitates the use of the IMBEI beamer template. 
+#' This is an alternative to creating a new markdown from template directly. 
+#' Latter is preferred.
 #'
-#' @param keep_tex Logical, fffd
-#' @param copy_to Path whehejhhe
+#' @param keep_tex Logical, defines wheter the tex file is kept. Defaults to TRUE
+#' @param copy_to File path for beamer template. Defaults to getwd()
 #'
 #' @return Creates a tex and prints out the suggested yaml content
 #' @export
