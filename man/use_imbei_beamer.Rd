@@ -7,18 +7,17 @@
 use_imbei_beamer(keep_tex = TRUE, copy_to = getwd())
 }
 \arguments{
-\item{keep_tex}{Logical, fffd}
+\item{keep_tex}{Logical, defines wheter the tex file is kept. Defaults to TRUE}
 
-\item{copy_to}{Path whehejhhe}
+\item{copy_to}{File path for beamer template. Defaults to getwd()}
 }
 \value{
 Creates a tex and prints out the suggested yaml content
 }
 \description{
-compact descr
-}
-\details{
-some more details
+Facilitates the use of the IMBEI beamer template.
+This is an alternative to creating a new markdown from template directly.
+Latter is preferred.
 }
 \examples{
 use_imbei_beamer()

@@ -4,21 +4,25 @@
 \alias{plot_pkg}
 \title{plot_pkg}
 \usage{
-plot_pkg(pkg_names, start_date = "2012-01-01", ...)
+plot_pkg(pkg_names, start_date = "2012-01-01", log_scale = FALSE,
+  monthly = FALSE)
 }
 \arguments{
 \item{pkg_names}{character string of package names to compare}
 
 \item{start_date}{character in ISO-format, default is "2012-01-01"}
 
-\item{...}{}
+\item{log_scale}{logical, defines y-scale. Default is \code{FALSE}.}
+
+\item{monthly}{logical, Should the download counts be aggregated by month? Default is \code{FALSE}.}
 }
 \value{
 a ggplot-object
 }
 \description{
 A function to check and compare the "poplarity" of R-packages.
-It uses the cranlogs-package to get download counts, which are then plotted.
+It uses the cranlogs-package to get download counts, which are then plotted over time.
+\emph{to be extended}
 }
 \examples{
 plot_pkg(c("gee","geepack"))

@@ -40,7 +40,8 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 #' 
 #' @param pkg_names character string of package names to compare
 #' @param start_date character in ISO-format, default is "2012-01-01" 
-#' @param ... 
+#' @param log_scale logical, defines y-scale. Default is `FALSE`.
+#' @param monthly logical, Should the download counts be aggregated by month? Default is `FALSE`.
 #'
 #' @return a ggplot-object
 #' @export
