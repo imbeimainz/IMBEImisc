@@ -36,7 +36,7 @@ use_imbei_beamer <- function(keep_tex = TRUE, copy_to = getwd()) {
   message(
     paste0(
     '
----\ntitle: "Your Title"\nauthor: "Your name"\ndate: "Date"\noutput:  \n  beamer_presentation:\n    template: IMBEI_beamer_template.tex\n    keep_tex: ', keep_tex,'\n    slide_level: 2---
+---\ntitle: "Your Title"\nauthor: "Your name"\ndate: "Date"\noutput:  \n  beamer_presentation:\n    template: IMBEI_beamer_template.tex\n    keep_tex: ', keep_tex,'\n    slide_level: 2\n---
     '
     )
   )
