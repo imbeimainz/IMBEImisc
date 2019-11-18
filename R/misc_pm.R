@@ -49,7 +49,7 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 #' plot_pkg(c("gee","geepack"))
 #' 
 #' 
-plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE,...){
+plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE, monthly=FALSE){
   needed_pkgs  <- c("cranlogs","ggplot2")
   missing      <- !(needed_pkgs %in% rownames(installed.packages()))
   if(max(missing)>0) install.packages(needed_pkgs[missing])
@@ -59,7 +59,14 @@ plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE,...){
   for(i in 1:length(pkg_names)){
     Counts <- rbind(Counts,cranlogs::cran_downloads(pkg_names[i], from=start_date))
   }
-  plt <- ggplot(data=Counts,aes(date,count,col=package)) + geom_smooth() + geom_point(alpha=.1)
+  if(monthly) {
+    Counts$yearmonth <- as.Date(paste0(format(Counts$date,"%Y-%m"),"-01"))
+    Counts <- aggregate(count~ yearmonth + package, Counts, sum)
+    names(Counts)[1] <- "date"
+  }
+  plt <- ggplot(data=Counts,aes(date,count,col=package)) + geom_smooth() + 
+    geom_point(alpha=ifelse(monthly,.8,.1))
   if(log_scale) plt <- plt + scale_y_log10()
   return(plt)
 }
+
