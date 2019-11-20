@@ -3,7 +3,6 @@
 \docType{package}
 \name{IMBEImisc-pkg}
 \alias{IMBEImisc-pkg}
-\alias{IMBEImisc-pkg-package}
 \title{IMBEImisc}
 \description{
 \code{IMBEImisc} is an R package that provides various utility functions used by IMBEI staff

@@ -4,8 +4,12 @@
 \alias{plot_pkg}
 \title{plot_pkg}
 \usage{
-plot_pkg(pkg_names, start_date = "2012-01-01", log_scale = FALSE,
-  monthly = FALSE)
+plot_pkg(
+  pkg_names,
+  start_date = "2012-01-01",
+  log_scale = FALSE,
+  monthly = FALSE
+)
 }
 \arguments{
 \item{pkg_names}{character string of package names to compare}

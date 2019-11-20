@@ -4,8 +4,14 @@
 \alias{rocplot}
 \title{Customized ROC plot}
 \usage{
-rocplot(df, predictions_name, outcomes_name, decorate_youden = TRUE,
-  decorate_performance = TRUE, ...)
+rocplot(
+  df,
+  predictions_name,
+  outcomes_name,
+  decorate_youden = TRUE,
+  decorate_performance = TRUE,
+  ...
+)
 }
 \arguments{
 \item{df}{The data frame containing the observations}
