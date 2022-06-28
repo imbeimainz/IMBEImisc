@@ -1,0 +1,68 @@
+---
+title: "IMBEI Presentation"
+date: " `r Sys.Date()` "
+output: 
+  beamer_presentation:
+    template: IMBEI_beamer_short_template.tex
+    keep_tex: TRUE
+    slide_level: 3
+header-includes:
+  - \usepackage{lipsum} %% or whatever packages you might need ... 
+  - \author{Author1\inst{1}, Author2\inst{1}}
+  - \institute{\inst{1}Institute of Medical Biostatistics, Epidemiology and Informatics}
+---
+
+# Section 1
+## Subsection 1.1
+### Slide A 
+
+**TIP:** Place a logo with the name *Universitaetsmedizin.jpg* in the same 
+folder as this .rmd-file. It will get used for header and titlepage. 
+
+
+\begin{itemize}
+  \item this is 
+  \item a \textbf{list}
+\end{itemize}
+
+
+\begin{itemize}
+  \tightlist
+  \item this is 
+  \item a \emph{tight} list
+\end{itemize}
+
+* This is also a 
+* *tight* list, **very bold**. 
+
+
+## Subsection 1.2
+### Slide B
+
+:::::: {.columns}
+
+::: {.column}
+* This is an informative list
+  * even with subitems :)
+* Look!
+* on the right side is a plot!
+:::
+
+::: {.column}
+```{r,echo=FALSE}
+plot(-1:1,-1:1,type="n")
+text(0,0,  "Hi, I'm a plot within a latex environment,",cex=2)
+text(0,-.2,"the `::::::` are needed to make that happen. ",cex=2)
+```
+:::
+
+::::::
+
+# Section 2
+### Slide C
+
+```{r, echo=FALSE}
+plot(-1:1,-1:1,type="n")
+text(0,0," ... maybe another plot ... ",cex=4)
+```
+

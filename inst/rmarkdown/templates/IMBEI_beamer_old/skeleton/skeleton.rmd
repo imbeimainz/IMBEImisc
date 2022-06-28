@@ -4,7 +4,7 @@ author: " < Mein Name > "
 date: " `r Sys.Date()` "
 output: 
   beamer_presentation:
-    template: IMBEI_beamer_template.tex
+    template: IMBEI_beamer_old_template.tex
     keep_tex: TRUE
     slide_level: 2
 ---

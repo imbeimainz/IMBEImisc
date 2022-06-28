@@ -1,0 +1,35 @@
+---
+title: "< Forschungsprojekt >"
+author: " < Mein Name > "
+date: " `r Sys.Date()` "
+output: 
+  # word_document:
+  #   toc: true
+  html_document: 
+    toc: true 
+    code_folding: hide
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(flextable) # can make tables for word AND html 
+```
+
+
+# Ziele und Zusammenfassung
+
+# Datenaufbereitung
+
+```{r}
+# fread("dat.csv")
+```
+
+# Deskription 
+
+```{r}
+flextable::flextable(data.frame(A=1:5,B=LETTERS[1:5]))
+```
+
+# Analysen
+

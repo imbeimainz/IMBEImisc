@@ -1,0 +1,4 @@
+name: Forschungsberatung
+description: >
+ ein r-markdown template, gedacht als Skelett für kleine Forschungsprojekte. 
+create_dir: false
