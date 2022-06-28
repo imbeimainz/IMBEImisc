@@ -7,7 +7,7 @@
 use_imbei_beamer(keep_tex = TRUE, copy_to = getwd())
 }
 \arguments{
-\item{keep_tex}{Logical, defines wheter the tex file is kept. Defaults to TRUE}
+\item{keep_tex}{Logical, defines whether the tex file is kept. Defaults to TRUE}
 
 \item{copy_to}{File path for beamer template. Defaults to getwd()}
 }

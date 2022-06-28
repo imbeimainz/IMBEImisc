@@ -4,7 +4,7 @@
 #' This is an alternative to creating a new markdown from template directly. 
 #' Latter is preferred.
 #'
-#' @param keep_tex Logical, defines wheter the tex file is kept. Defaults to TRUE
+#' @param keep_tex Logical, defines whether the tex file is kept. Defaults to TRUE
 #' @param copy_to File path for beamer template. Defaults to getwd()
 #'
 #' @return Creates a tex and prints out the suggested yaml content
@@ -16,8 +16,8 @@ use_imbei_beamer <- function(keep_tex = TRUE, copy_to = getwd()) {
   # copy the template from IMBEImisc to the current location
   invisible(
     file.copy(
-      from = system.file("rmarkdown/templates/IMBEI_beamer/skeleton",
-                         "IMBEI_beamer_template.tex",package = "IMBEImisc"),
+      from = system.file("rmarkdown/templates/IMBEI_beamer_short/skeleton",
+                         "IMBEI_beamer_short_template.tex",package = "IMBEImisc"),
       to = copy_to
     )
   )

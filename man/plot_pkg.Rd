@@ -24,7 +24,7 @@ plot_pkg(
 a ggplot-object
 }
 \description{
-A function to check and compare the "poplarity" of R-packages.
+A function to check and compare the "popularity" of R-packages.
 It uses the cranlogs-package to get download counts, which are then plotted over time.
 \emph{to be extended}
 }

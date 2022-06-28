@@ -34,7 +34,7 @@ print_with_confint <- function(coefs,df=Inf,exp=FALSE,conf.level=.95){
 
 #' plot_pkg
 #' 
-#' A function to check and compare the "poplarity" of R-packages.
+#' A function to check and compare the "popularity" of R-packages.
 #' It uses the cranlogs-package to get download counts, which are then plotted over time.
 #' *to be extended* 
 #' 
