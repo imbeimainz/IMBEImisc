@@ -12,6 +12,9 @@ header-includes:
   - \institute{\inst{1}Institute of Medical Biostatistics, Epidemiology and Informatics}
 ---
 
+###
+\tableofcontents
+
 # Section 1
 ## Subsection 1.1
 ### Slide A 

@@ -71,24 +71,17 @@ $for(header-includes)$
 $endfor$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE 
-$if(title)$
-	\title{$title$}
-$endif$
-$if(subtitle)$
-	\subtitle{$subtitle$}
-$endif$
-$if(author)$
-	\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
+$if(title)$ 		\title{$title$} 			$endif$
+$if(subtitle)$ 	\subtitle{$subtitle$} $endif$
+$if(author)$ 		\author{$for(author)$$author$$sep$ \and $endfor$} $endif$
 \date{$date$}
 
 \IfFileExists{Universitaetsmedizin.jpg}{\titlegraphic{\includegraphics[trim = 0mm 0mm 0mm 0mm,clip,width=0.8\textwidth]{Universitaetsmedizin.jpg}}}{}%uni-imbei.jpg}}
 
-\providecommand{\tightlist}{%						%% fixes minor bug in rmarkdown  lists (PM, 2019-08-21)... 
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEAMER PRESENTATION LAYOUT 
+
+\providecommand{\tightlist}{%						%% fixes minor bug in rmarkdown  lists (PM, 2019-08-21)... 
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \definecolor{UniBlue}{RGB}{128,161,201} % 150,175,220
 \definecolor{UniDarkBlue}{RGB}{0,60,118} % 0,40,80
@@ -98,9 +91,9 @@ $endif$
 	\usetheme{default}  %% Hannover
 	
 	\setbeamercolor{titlelike}		{bg=UniDarkBlue, fg=white}
-	\setbeamercolor{author}				{bg=white, fg=UniRed}
-	\setbeamercolor{institute}		{bg=white, fg=UniRed}
-	\setbeamercolor{date}					{bg=white, fg=UniRed}
+	\setbeamercolor{author}				{bg=white, fg=UniDarkBlue}
+	\setbeamercolor{institute}		{bg=white, fg=UniDarkBlue}
+	\setbeamercolor{date}					{bg=white, fg=UniDarkBlue}
 	
 	\setbeamercolor{section in toc}		{bg=white, fg=UniDarkBlue}
 	\setbeamercolor{subsection in toc}{bg=white, fg=UniBlue}

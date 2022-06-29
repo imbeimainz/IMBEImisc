@@ -14,6 +14,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(flextable) # can make tables for word AND html 
+library(data.table)
 ```
 
 
@@ -27,8 +28,15 @@ library(flextable) # can make tables for word AND html
 
 # Deskription 
 
+## Tabellen{.tabset}
+### Tabelle 1{-}
 ```{r}
 flextable::flextable(data.frame(A=1:5,B=LETTERS[1:5]))
+```
+
+### Tabelle 2{-}
+```{r}
+flextable::flextable(data.frame(A=2:6,B=LETTERS[2:6]))
 ```
 
 # Analysen
