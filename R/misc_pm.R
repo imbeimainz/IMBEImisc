@@ -71,3 +71,26 @@ plot_pkg <- function(pkg_names, start_date="2012-01-01", log_scale=FALSE, monthl
   return(plt)
 }
 
+
+
+#' Get correlation of paired groups from summary statistics
+#' 
+#' Sometimes, papers report mean and std. dev of paired groups along with a p-value,
+#' but not the correlation (Often done in a typical table 1). The latter is needed
+#' for sample size calculations and can be recovered with this function.
+#'
+#' @param meanDiff Difference of means in two paired groups 
+#' @param sd1 Standard deviation in group 1
+#' @param sd2 Standard deviation in group 2
+#' @param pValue p value as reported in paper
+#'
+#' @return the correlation of the two groups
+#' @export
+#'
+get_corr_pairedTtest <- function(meanDiff, sd1, sd2, pValue){
+  t_stat <- qt(1-pValue/2,18)  ## get T statistic from p value 
+  sdpool <- sqrt(19)*(meanDiff)/t_stat ## compute std dev of one-sample t-test
+  Varpool <- sdpool^2
+  tmp  <- (sd0^2+sd1^2) - Varpool ## Var between subjects = total var - var within subjects
+  return( corr=tmp/(sd0*sd1*2) )
+}
