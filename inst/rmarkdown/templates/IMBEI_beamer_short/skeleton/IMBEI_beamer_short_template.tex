@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$%
+\documentclass[compress,$if(fontsize)$$fontsize$,$endif$%
 							 $if(handout)$handout,$endif$%
 							 $if(beamer)$ignorenonframetext,$endif$%
 							 $for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
@@ -97,7 +97,7 @@ $if(author)$ 		\author{$for(author)$$author$$sep$ \and $endfor$} $endif$
 	
 	\setbeamercolor{section in toc}		{bg=white, fg=UniDarkBlue}
 	\setbeamercolor{subsection in toc}{bg=white, fg=UniBlue}
-
+	
 	\setbeamercolor{frametitle}		{bg=UniDarkBlue, fg=white}
 	
 	\setbeamercolor{block}			{bg=UniBlue, fg=UniDarkBlue}
@@ -105,6 +105,8 @@ $if(author)$ 		\author{$for(author)$$author$$sep$ \and $endfor$} $endif$
 	\setbeamercolor{item}			{fg=UniRed}
 	\setbeamercolor{alerted text}		{fg=UniRed}
 	
+	\setbeamercolor{mini frame}						{fg=UniDarkBlue}
+	\setbeamercolor{section in head/foot}	{fg=UniDarkBlue}
 	
 	\setbeamertemplate{navigation symbols}{}
 	\setbeamercovered{invisible} 														%% default is transparent
@@ -115,18 +117,25 @@ $if(author)$ 		\author{$for(author)$$author$$sep$ \and $endfor$} $endif$
 	\setbeamercolor{caption name}{fg=normal text.fg}
 	\setbeamertemplate{itemize item}[circle]
 	\setbeamertemplate{itemize subitem}[square]
-
+	
 	%% self-defined (see below)
 	\setbeamercolor{footline page nr}	{bg=UniRed, fg=white}
 	
 	\setbeamertemplate{headline}{														%%  contents of headline
-			\hspace*{\fill}
-			\IfFileExists{Universitaetsmedizin.jpg}{\includegraphics[width=0.18\paperwidth]{Universitaetsmedizin.jpg}}{}
+		\vskip2pt
+		\hskip9pt
+		\begin{minipage}{3in}
+				\vskip-10pt \color{UniDarkBlue} \insertauthor : \,\, \insertshorttitle 
+		\end{minipage}
+		\hfill
+		\includegraphics[width=0.2\paperwidth]{Universitaetsmedizin.jpg}
+		\vskip2pt
 	}
-	
+
 	\setbeamertemplate{footline}{														%%  contents of footline
+%		\rule{\paperwidth}{0.1pt}
 		\hskip0.01\paperwidth
-		\color{UniDarkBlue}\insertshorttitle
+		\insertnavigation{0.75\paperwidth}
 		\hfill
 		\begin{beamercolorbox}[wd=0.04\paperwidth,ht=2.3ex,dp=1.5ex,
 			center]{footline page nr}
