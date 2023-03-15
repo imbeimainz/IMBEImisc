@@ -10,6 +10,7 @@ header-includes:
   - \usepackage{lipsum} %% or whatever packages you might need ... 
   - \author{Author1\inst{1}, Author2\inst{1}}
   - \institute{\inst{1}Institute of Medical Biostatistics, Epidemiology and Informatics}
+  - \AtBeginSection[]{\begin{frame}\tableofcontents[currentsection, subsectionstyle=hide]\end{frame}}  ## ToCs for every subsection
 ---
 
 ###
