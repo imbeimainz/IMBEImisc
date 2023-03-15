@@ -128,7 +128,7 @@ $if(author)$ 		\author{$for(author)$$author$$sep$ \and $endfor$} $endif$
 				\vskip-10pt \color{UniDarkBlue} \insertauthor : \,\, \insertshorttitle 
 		\end{minipage}
 		\hfill
-		\includegraphics[width=0.2\paperwidth]{Universitaetsmedizin.jpg}
+		\IfFileExists{Universitaetsmedizin.jpg}{\includegraphics[height=0.5cm]{Universitaetsmedizin.jpg}}{\vskip0.5cm}
 		\vskip2pt
 	}
 
