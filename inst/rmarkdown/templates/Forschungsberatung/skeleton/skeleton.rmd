@@ -16,6 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(flextable) # can make tables for word AND html 
 library(data.table)
 options(datatable.print.class=TRUE, datatable.print.key=TRUE)
+# options(repos = c(CRAN = “http://cran.rstudio.com”))  ## currently needed when installing packages on the rstudio server
 ```
 
 
