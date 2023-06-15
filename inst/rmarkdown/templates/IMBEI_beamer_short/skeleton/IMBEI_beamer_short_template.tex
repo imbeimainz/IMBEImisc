@@ -1,6 +1,4 @@
-\documentclass[compress,$if(fontsize)$$fontsize$,$endif$%
-							 $if(handout)$handout,$endif$%
-							 $if(beamer)$ignorenonframetext,$endif$%
+\documentclass[compress,ignorenonframetext,
 							 $for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 							 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LOAD PACKAGES 
@@ -8,10 +6,6 @@
 \usepackage{ifxetex,ifluatex}
 \usepackage{lmodern} %% latin modern family of fonts
 							 
-$if(theme)$				\usetheme{$theme$} 							$endif$
-$if(colortheme)$	\usecolortheme{$colortheme$}		$endif$
-$if(fonttheme)$		\usefonttheme{$fonttheme$}			$endif$
-
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
@@ -24,9 +18,7 @@ $if(fonttheme)$		\usefonttheme{$fonttheme$}			$endif$
   \else
     \usepackage[T1]{fontenc}
     \usepackage[utf8]{inputenc}
-    $if(euro)$
-      \usepackage{eurosym}
-    $endif$
+    $if(euro)$  \usepackage{eurosym}  $endif$
   \fi
 \fi
 
@@ -36,9 +28,7 @@ $if(natbib)$
 $endif$
 $if(biblatex)$
 	\usepackage{biblatex}
-	$if(biblio-files)$
-		\bibliography{$biblio-files$}
-	$endif$
+	$if(biblio-files)$  \bibliography{$biblio-files$}  $endif$
 $endif$
 
 $if(graphics)$
@@ -56,92 +46,76 @@ $endif$
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
-$if(numbersections)$
-$else$
-	\setcounter{secnumdepth}{0}
-$endif$
-$if(verbatim-in-note)$
-	\VerbatimFootnotes % allows verbatim text in footnotes
-$endif$
-$if(lang)$
-	\usepackage[$lang$]{babel}
-$endif$
-$for(header-includes)$
-	$header-includes$
-$endfor$
+
+$if(numbersections)$ $else$	\setcounter{secnumdepth}{0}	$endif$
+$if(verbatim-in-note)$	\VerbatimFootnotes  						$endif$ % allows verbatim text in footnotes
+$if(lang)$ 							\usepackage[$lang$]{babel} 			$endif$
+$for(header-includes)$	$header-includes$								$endfor$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE 
 $if(title)$ 		\title{$title$} 			$endif$
 $if(subtitle)$ 	\subtitle{$subtitle$} $endif$
-$if(author)$ 		\author{$for(author)$$author$$sep$ \and $endfor$} $endif$
+$if(author)$ 		\author{$for(author)$ $author$ $sep$ \and  $endfor$}  $endif$
+$if(institute)$ \institute{$for(institute)$ $institute$ \\ $endfor$}  $endif$
 \date{$date$}
+\IfFileExists{Universitaetsmedizin.jpg}{\titlegraphic{%
+		\includegraphics[width=0.8\textwidth]{Universitaetsmedizin.jpg}} } {}
 
-\IfFileExists{Universitaetsmedizin.jpg}{\titlegraphic{\includegraphics[trim = 0mm 0mm 0mm 0mm,clip,width=0.8\textwidth]{Universitaetsmedizin.jpg}}}{}%uni-imbei.jpg}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEAMER PRESENTATION LAYOUT 
 
 \providecommand{\tightlist}{%						%% fixes minor bug in rmarkdown  lists (PM, 2019-08-21)... 
 	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\definecolor{UniBlue}{RGB}{128,161,201} % 150,175,220
-\definecolor{UniDarkBlue}{RGB}{0,60,118} % 0,40,80
+\definecolor{UniBlue}{RGB}{128,161,201} 								%% colors as defined in design manual
+\definecolor{UniDarkBlue}{RGB}{0,60,118} 									
 \definecolor{UniRed}{RGB}{193,0,43}
 
-\mode<presentation>{
-	\usetheme{default}  %% Hannover
-	
-	\setbeamercolor{titlelike}		{bg=UniDarkBlue, fg=white}
-	\setbeamercolor{author}				{bg=white, fg=UniDarkBlue}
-	\setbeamercolor{institute}		{bg=white, fg=UniDarkBlue}
-	\setbeamercolor{date}					{bg=white, fg=UniDarkBlue}
-	
-	\setbeamercolor{section in toc}		{bg=white, fg=UniDarkBlue}
-	\setbeamercolor{subsection in toc}{bg=white, fg=UniBlue}
-	
-	\setbeamercolor{frametitle}		{bg=UniDarkBlue, fg=white}
-	
-	\setbeamercolor{block}			{bg=UniBlue, fg=UniDarkBlue}
-	\setbeamercolor{block title}{fg=UniDarkBlue}
-	\setbeamercolor{item}			{fg=UniRed}
-	\setbeamercolor{alerted text}		{fg=UniRed}
-	
-	\setbeamercolor{mini frame}						{fg=UniDarkBlue}
-	\setbeamercolor{section in head/foot}	{fg=UniDarkBlue}
-	
-	\setbeamertemplate{navigation symbols}{}
-	\setbeamercovered{invisible} 														%% default is transparent
-	\setbeameroption{show notes}
-	
-	\setbeamertemplate{caption}[numbered]
-	\setbeamertemplate{caption label separator}{:}
-	\setbeamercolor{caption name}{fg=normal text.fg}
-	\setbeamertemplate{itemize item}[circle]
-	\setbeamertemplate{itemize subitem}[square]
-	
-	%% self-defined (see below)
-	\setbeamercolor{footline page nr}	{bg=UniRed, fg=white}
-	
-	\setbeamertemplate{headline}{														%%  contents of headline
-		\vskip2pt
-		\hskip9pt
-		\begin{minipage}{3in}
-				\vskip-10pt \color{UniDarkBlue} \insertauthor : \,\, \insertshorttitle 
-		\end{minipage}
-		\hfill
-		\IfFileExists{Universitaetsmedizin.jpg}{\includegraphics[height=0.5cm]{Universitaetsmedizin.jpg}}{\vskip0.5cm}
-		\vskip2pt
-	}
+\newcommand{\y}{0.035\paperwidth}												%% right indentation width
 
-	\setbeamertemplate{footline}{														%%  contents of footline
-%		\rule{\paperwidth}{0.1pt}
-		\hskip0.01\paperwidth
-		\insertnavigation{0.75\paperwidth}
-		\hfill
-		\begin{beamercolorbox}[wd=0.04\paperwidth,ht=2.3ex,dp=1.5ex,
-			center]{footline page nr}
-			\hfill\insertframenumber%/\insertpresentationendpage
-		\end{beamercolorbox}\hskip0.01\paperheight\hbox{}\vskip0.01\paperheight
-	}
+\setbeamercolor{titlelike}		{bg=UniDarkBlue, fg=white}
+\setbeamercolor{author}				{bg=white, fg=UniDarkBlue}
+
+\setbeamercolor{section in toc}				{bg=white, fg=UniDarkBlue}
+\setbeamercolor{subsection in toc}		{bg=white, fg=UniBlue}
+\setbeamercolor{section in head/foot}	{fg=UniDarkBlue}
+
+\setbeamercolor{block title}					{fg=white, bg=UniDarkBlue}
+\setbeamercolor{block body}						{bg=UniDarkBlue!08!white}
+\setbeamercolor{block title alerted}  {fg=white, bg=UniRed!80!black}
+\setbeamercolor{block body alerted}		{bg=UniRed!08!white}
+\setbeamercolor{block title example}	{fg=white, bg=UniBlue}
+\setbeamercolor{block body example}		{bg=UniBlue!08!white}
+
+\setbeamercolor{alerted text}					{fg=UniRed}
+\setbeamercolor{footline page nr}			{bg=UniRed, fg=white} % self-defined, used below
+
+\setbeamertemplate{navigation symbols}{}								%% removes navigation symbols (bottom right)
+\setbeamercovered{invisible} 														%% mainly for lists. default is transparent
+
+\setbeamercolor{item}									{fg=UniRed}
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[circle]
+
+\setbeamertemplate{frametitle}{												  %% custom frametitles 
+	\hskip-\y
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex]{frametitle}
+		\hskip\y \hskip10pt \insertframetitle
+	\end{beamercolorbox}
+}
+\setbeamertemplate{headline}{														%%  contents of headline
+	\vskip2pt \raisebox{4pt}{\hskip10pt \insertshortauthor:  \insertshorttitle}
+	\hfill
+	\IfFileExists{Universitaetsmedizin.jpg}{%
+		\includegraphics[width=0.2\paperwidth]{Universitaetsmedizin.jpg} } {}
+	\hskip\y\hbox{}
+}
+\setbeamertemplate{footline}{														%%  contents of footline
+	\hskip10pt \insertnavigation{0.75\paperwidth} 				% \hskip needed for omnious reasons
+	\hfill
+	\begin{beamercolorbox}[wd=0.025\paperwidth,ht=2.5ex,dp=1ex]{footline page nr}
+		\hfill \insertframenumber \hskip2pt\hbox{}
+	\end{beamercolorbox} \hskip0.01\paperwidth\hbox{}\vskip0.01\paperheight
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT %%%%%%

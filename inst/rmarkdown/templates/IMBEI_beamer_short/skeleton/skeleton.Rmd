@@ -1,16 +1,24 @@
 ---
 title: "IMBEI Presentation"
-date: " `r Sys.Date()` "
+date: "`r Sys.Date()`"
+author: 
+  An Author \inst{1}
+  Another Author \inst{1,}\inst{2}
+institute:
+  - \inst{1} Institute of Medical Biostatistics, Epidemiology or Informatics
+  - \inst{2} another important Institution
+classoption:                    ## add any valid beamer option  
+  - 10pt                        ## fontsize, default is 10pt
+  - aspectratio=169             ## options: 1610; 169; 149; 141; 54; 43; 32
+  # - handout                   ## removes pauses (default is presentation)
 output: 
   beamer_presentation:
     template: IMBEI_beamer_short_template.tex
     keep_tex: TRUE
     slide_level: 3
 header-includes:
-  - \usepackage{lipsum} %% or whatever packages you might need ... 
-  - \author{Author1\inst{1}, Author2\inst{1}}
-  - \institute{\inst{1}Institute of Medical Biostatistics, Epidemiology and Informatics}
-  - \AtBeginSection[]{\begin{frame}\tableofcontents[currentsection, subsectionstyle=hide]\end{frame}}  ## ToCs for every subsection
+  - \usepackage{lipsum}      %% or whatever packages you might like ... 
+  - \AtBeginSection {\frame{ \tableofcontents[currentsection] }}  %% Section-ToCs
 ---
 
 ###
