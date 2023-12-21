@@ -17,7 +17,10 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-A collection of functions commonly used by members of the IMBEI
+A collection of functions commonly used by members of the IMBEI.  
+It also contains some rmarkdown-templates. After having installed this package, 
+you can create a new rmarkdown file in rstudio, select the option 'From Template' and then choose 'IMBEI_beamer_short'. 
+This template is a lets you create pdf-slides with rmarkdown, that look like the .ppt slides of the UM Mainz.  
 
 ## Installation
 
