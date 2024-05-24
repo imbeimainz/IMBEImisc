@@ -65,7 +65,7 @@ $if(institute)$ \institute{$for(institute)$ $institute$ \\ $endfor$}  $endif$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEAMER PRESENTATION LAYOUT 
 
 \providecommand{\tightlist}{%						%% fixes minor bug in rmarkdown  lists (PM, 2019-08-21)... 
-	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+	\setlength{\itemsep}{$tightlistSeparation$ pt}\setlength{\parskip}{0pt}}
 
 \definecolor{UniBlue}{RGB}{128,161,201} 								%% colors as defined in design manual
 \definecolor{UniDarkBlue}{RGB}{0,60,118} 									
