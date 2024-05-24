@@ -5,7 +5,7 @@ author:
   An Author \inst{1}
   Another Author \inst{1,}\inst{2}
 institute:
-  - \inst{1} Institute of Medical Biostatistics, Epidemiology or Informatics
+  - \inst{1} Institute of Medical Biostatistics, Epidemiology and Informatics
   - \inst{2} another important Institution
 classoption:                    ## add any valid beamer option  
   - 10pt                        ## fontsize, default is 10pt
@@ -16,81 +16,179 @@ output:
     template: IMBEI_beamer_short_template.tex
     keep_tex: TRUE
     slide_level: 3
+tightlistSeparation: 0          ## Separation between items in markdown lists (in pt)
 header-includes:
   - \usepackage{lipsum}      %% or whatever packages you might like ... 
   - \AtBeginSection {\frame{ \tableofcontents[currentsection] }}  %% Section-ToCs
 ---
-
+ 
 ###
 \tableofcontents
 
-# Section 1
-## Subsection 1.1 : INTRO 
+# Section 1 : Usage Tips
+## Subsection 1.1 : About this Template  
 ### About this Template 
 
-* The markdown header offers many configuration options, most notably: 
-  * the aspect ratio
-  * font size 
-  * the handout option, which removes all pauses for printouts
-  * In the markdown option `header-includes`, you can include latex code in the 
-latex header of the document. This is most helpful for latex packages or custom makros. 
-Also, you can see there a line that adds tables of content of each section. If you don't like
-them, just comment it out. 
-* **TIP:** Place a logo with the name *Universitaetsmedizin.jpg* in the same 
-folder as this .rmd-file. It will get used for header and titlepage. 
+* This is a template for `R`-markdown beamer presentations. It gives an overview 
+on how to use this template, but it assumes you are familiar with R-markdown in gerenal. 
+* I use this template for my own presentations, you are invited to use it as well :) 
+* If you have suggestions/questions, please feel free to write me an e-mail: pmildenb@uni-mainz.de
+\vskip12pt
+* **TIP:** Place a logo with the exact name *Universitaetsmedizin.jpg* in the same 
+folder as this .rmd-file. It will be used as logo for header and titlepage. 
 
-## Subsection 1.2: Layout Tips: Lists, Columns, etc 
+
+### Configuration options
+
+**Configuration options in he YAML header**  
+The YAML header is the part of this R-markdown file at the very top, between the 
+`---`.  
+There you can configure 
+
+* the aspect ratio
+* font size 
+* the handout option, which removes all pauses (mainly useful for printouts)
+* In the markdown option `header-includes`, you can include latex code in the 
+latex header of the document. This is most helpful for latex packages or custom makros.
+*  Also, you can see there a line (` - \AtBeginSection [...]` ) that adds 
+tables of content of each section. If you don't like them, just comment it out. 
+
+## Subsection 1.2: Lists
 
 ### About Lists
 
-Lists can be done with either markdown or with latex:  
+Lists can be done with either **markdown** or with \textbf{\LaTeX}  
 
+
+\vskip12pt  
+
+:::::: {.columns}
+::: {.column}
+__with \LaTeX__
 \begin{itemize}
-\item this is 
+\item this is
 \item a \textbf{list}
+\item with standard spacing between items
 \end{itemize}
 
+\vskip1cm
 
 \begin{itemize}
 \tightlist
-\item this is 
-\item a \emph{tight} list
+\item this is a \emph{tight} list
+\item which we get 
+\item by adding the `\tightlist` command
 \end{itemize}
+:::
 
-* This is also a 
-* *tight* list. 
+::: {.column}
+**`R`-markdown**
 
+* You get the markdown equivalent
+
+* by simply leaving an empty line
+
+* between each list item in the .rmd-file.
+
+\vskip1cm
+
+* But by default,  
+* markdown produces 
+* *tight* lists. 
+
+
+:::
+::::::
+
+
+### Custom list spacing
+
+* As seen above, the default for `r`-markdown lists are thight lists. 
+* I've added an extra variable in the YAML header, called `tightlistSeparation`.
+* It denotes the separation of list items in `pt`, the default is `0pt`. If you change it to e.g. your font size, you get lists with double spacing. 
+* This variable makes global changes, if you wanted to change it for only one 
+specific list, you might want to resort to latex directly ... (?)
+
+
+### More About (Markdown) Lists 
+
+1. Usual Markdown allows enumerated lists, 
+2. like this one. 
+3. All you need to do, is to start the line with `1.`, `...`
+
+A) `R`-Markdown also enables you to use lettered (alphabetical) lists, 
+B) for this you have to start the line with `A)`. 
+C) It also works with small letters (trust me :) )
+
+
+## Subsection 1.3: Columns
 
 ### Multicolumn Slides
 
-Again, there is a latex and a markdown option to create multicolumn slides. 
-I usually prefer markdown, because it is easier to include r-code (or anything that is not 
-latex code) in  those columns. 
-
+Again, there is a \LaTeX and a markdown option to create multicolumn slides. 
+I usually prefer markdown, because it is easier to include r-code 
+(or anything that is not latex code) in  those columns. 
+  
 :::::: {.columns}
 
-::: {.column}
+::: {.column width="40%"}
 * This is just a list
   * even with subitems :)
 * Look!
 * on the right side is a plot!
+
+\vskip12pt 
+**And please note that the width of the columns is adjustable by using width="XY%"** 
 :::
 
-::: {.column}
+::: {.column width="59%"}
+\vskip-1cm
 ```{r,echo=FALSE}
 plot(-1:1,-1:1,type="n")
-text(0,0,  "Hi, I'm a R-plot on a multicolumn slide,",cex=2)
-text(0,-.2,"the `::::::` are needed to make that happen. ",cex=2)
+text(0,0,  "Hi, I'm a R-plot on a multicolumn slide,", cex=2)
+text(0,-.2,"the `::::::` are needed to make that happen. ", cex=2)
 ```
 :::
 
 ::::::
 
-# Section 2
-### Slide C
+## Section 1.4: Usage of the hash sign `#` 
 
-```{r, echo=FALSE}
-plot(-1:1,-1:1,type="n")
-text(0,0," ... maybe another plot ... ",cex=4)
-```
+### Hierachy with the hash sign `#`
+
+* `#`   :   start of a new sections
+* `##`  :   start of a new subsections
+* `###` :   start of a new frame (i.e. slide)
+  * You could readjust the slide level in the YAML header, but there is good reason not to. 
+* `####`:   Infoboxes, like below: 
+
+#### This is a box 
+with some text
+
+
+# Section 2: Further Reading / References 
+
+## Markdown
+### `R`- Markdown
+
+The go-to resource for `R`-markdown, which is a extended version of base markdown,  is considered to be  [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/).  
+**But**: 
+
+* It does not cover every feature of base markdown. For this, one might need to dig deeper, the PANDOC manual mentioned below is quite good.  
+* `R`-markdown even has undocumented features. E.g. lettered lists (see above) are - 
+as far as I can tell - a `R`-markdown-only feature.  
+
+Other `R`-Markdown sources are
+
+* \small [https://rstudio.github.io/cheatsheets/rmarkdown.pdf](https://rstudio.github.io/cheatsheets/rmarkdown.pdf)
+
+
+
+### PANDOC
+
+**PANDOC** is a universal document converter that is used in every .rmd-file (and not only there).
+It understands an extended and slightly revised version of base Markdown syntax.
+Have a look at 
+[https://pandoc.org/MANUAL.html#pandocs-markdown](https://pandoc.org/MANUAL.html#pandocs-markdown). 
+
 
